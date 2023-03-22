@@ -33,6 +33,12 @@ class Person:
             raise ValueError("Invalid activity level")
 
         return round(tdee)
+    #returns a tuple [cutting calorie, bulk calorie]
+    def calculate_tdee_range(self):
+        tdee = self.calculate_daily_calories()
+        tdee_range= (tdee - 500, tdee + 500)
+        print(f"The range of TDEE values is {tdee_range[0]} to {tdee_range[1]}.")
+    
 
 def create_person_from_input():
     print("Please enter your information below.")
@@ -63,7 +69,18 @@ def create_person_from_input():
     person = Person(name, age, sex, weight, height, activity_level_str)
 
     return person
+Bee = create_person_from_input()
+Bee.display_info()
+Bee.calculate_daily_calories()
+Bee.calculate_tdee_range()
 
-person = create_person_from_input()
-print(person.calculate_daily_calories())
+
+
+
+
+
+
+
+
+
 
